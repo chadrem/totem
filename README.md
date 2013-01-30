@@ -1,6 +1,14 @@
 # Totem
 
-TODO: Write a gem description
+Totem is a framework for writing actor model based servers using the Ruby language.
+Currently it is in an experimental state, but you are welcome to play with it.
+
+Features:
+- Ruby on Rails inspired folder structure.
+- Includes Active Record and Active Support.
+- Generators for database migrations.
+- Integrated console.
+- Designed for MRI and JRuby.
 
 ## Installation
 
@@ -15,10 +23,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install totem
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
