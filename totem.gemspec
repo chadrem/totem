@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'totem/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "totem"
+  gem.name          = 'totem'
   gem.version       = Totem::VERSION
-  gem.authors       = ["Chad Remesch"]
-  gem.email         = ["chad@remesch.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.authors       = ['Chad Remesch']
+  gem.email         = ['chad@remesch.com']
+  gem.description   = %q{The Totem framework.}
+  gem.summary       = %q{An actor model based framework for rapid server server side development.}
+  gem.homepage      = 'https://github.com/chadrem/totem'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
