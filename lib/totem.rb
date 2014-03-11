@@ -1,8 +1,10 @@
 require 'logger'
+require 'irb'
 
 require 'totem/version'
-require 'totem/tasks/console'
-require 'totem/tasks/generator'
+require 'totem/shell'
+require 'totem/shell_cmds/base'
+require 'totem/shell_cmds/console'
 
 module Totem
   def self.initialize(root)
