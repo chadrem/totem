@@ -10,6 +10,8 @@ Features:
 - Uses built in Ruby features and avoids depending on gems.
 - Designed for MRI and JRuby.
 - Easily extensible through gems or directly in your project.
+  - ActiveRecord (coming soon).
+  - Tribe (coming soon).
 - Designed for multi-threaded applications.
 
 ## Installation
