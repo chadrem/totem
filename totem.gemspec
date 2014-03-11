@@ -17,6 +17,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency('tribe', '0.0.8')
-  gem.add_dependency('tribe_em', '0.0.2')
+  gem.add_dependency('raad', '0.5.0')
 end
