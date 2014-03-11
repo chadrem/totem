@@ -1,4 +1,4 @@
-# Totem
+# Totem - The Ruby application skeleton framework
 
 Totem is a framework for creating Ruby projects.
 It's like having a Rails project folder without the Rails dependency.

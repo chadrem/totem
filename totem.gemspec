@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Totem::VERSION
   gem.authors       = ['Chad Remesch']
   gem.email         = ['chad@remesch.com']
-  gem.description   = %q{The Totem framework.}
-  gem.summary       = %q{An actor model based framework for rapid server server side development.}
+  gem.description   = %q{Totem - The Ruby application skeleton framework.}
+  gem.summary       = %q{Totem is a framework for creating Ruby projects. It's like having a Rails project folder without the Rails dependency.}
   gem.homepage      = 'https://github.com/chadrem/totem'
 
   gem.files         = `git ls-files`.split($/)
