@@ -73,6 +73,12 @@ Don't forget, you need to register this class in `app/loader.rb` with `require m
       end
     end
 
+## Add-ons
+
+Below is a list of available add-ons that extend the functionality of a Totem project:
+
+- [totem_activerecord](https://github.com/chadrem/totem_activerecord): The powerful Rails database library
+
 ## Contributing
 
 1. Fork it
