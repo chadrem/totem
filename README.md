@@ -9,9 +9,7 @@ Features:
 - Integrated console.
 - Uses built in Ruby classes and avoids depending on 3rd party gems.
 - Designed for MRI and JRuby.
-- Easily extensible through gems or directly in your project.
-  - ActiveRecord (coming soon).
-  - Tribe (coming soon).
+- Easily extensible through gems or directly in your project (ActiveRecord gem coming soon).
 - Designed for multi-threaded applications.
 
 ## Installation
@@ -27,6 +25,19 @@ And then execute:
 Or install it yourself as:
 
     $ gem install totem
+
+## Usage
+
+Create a new project called "my_app" in the current directory:
+
+    $ totem new my_app
+
+You can now create your custom classes in the "app" directory.
+You will need to manually "require" your classes in "app/loader.rb" since there isn't an auto-loader.
+
+Totem comes with an IRB based console similar to Rails:
+
+    $ totem console
 
 ## Contributing
 
