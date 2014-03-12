@@ -7,7 +7,7 @@ Features:
 - Ruby on Rails inspired folder structure.
 - Lightweight and simple code.
 - Integrated console.
-- Uses built in Ruby classes and avoids depending on 3rd party gems.
+- Uses built in Ruby classes and avoids depending on third party gems.
 - Designed for MRI and JRuby.
 - Easily extensible through gems or directly in your project (ActiveRecord gem coming soon).
 - Designed for multi-threaded applications.
@@ -56,12 +56,12 @@ Don't forget, you need to register this class in `app/loader.rb` with `require m
         puts "  Root: #{Totem.root}"
         puts "  Environment: #{Totem.env}"
         puts
-        
+
         puts 'Totem includes a logger...'
         Totem.logger.error('Example error log entry')
         puts "  Check your #{Totem.log_file_path} to see the entry."
         puts
-        
+
         puts 'Enjoy!'
       end
     end
