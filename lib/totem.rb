@@ -46,14 +46,7 @@ module Totem
   def self.logger
     return @logger if @logger
 
-    case env
-    when 'development'
-      log_to_stdout
-    when 'production'
-      log_to_file
-    else
-      log_to_stdout
-    end
+    log_to_file
 
     return @logger
   end
