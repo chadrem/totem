@@ -22,7 +22,7 @@ module Totem
         end
         puts
 
-        template_path = File.expand_path(File.dirname(__FILE__) + '/../../../')
+        template_path = File.expand_path(File.dirname(__FILE__) + '/../../../templates')
 
         puts 'Creating Gemfile...'
         FileUtils.cp(template_path + '/Gemfile.erb', root_path + 'Gemfile')
