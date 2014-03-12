@@ -13,6 +13,12 @@ module Totem
     end
 
     def run
+      if @args[0].nil?
+        puts "Usage: totem <command>"
+        puts "Available commands: #{self.class.cmds.keys.join(', '}"
+        return
+      end
+
       cmd_to_class(@args[0]).new(@args[1..-1]).run
     end
 
