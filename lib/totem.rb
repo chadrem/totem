@@ -12,7 +12,6 @@ module Totem
 
     @setup = true
     @root = root
-    @callbacks = {}
     Bundler.require(Totem.env.to_sym)
     run_callbacks(:before_load_app)
     $LOAD_PATH.unshift(root + '/app')
@@ -55,7 +54,8 @@ module Totem
   end
 
   def self.register_callback(type, callback=nil, &block)
-    (@callbacks[:type] ||= []) << (callback || block)
+    @callbacks ||= {}
+    (@callbacks[type] ||= []) << (callback || block)
 
     return true
   end
@@ -95,6 +95,7 @@ module Totem
   end
 
   def self.run_callbacks(type)
+    @callbacks ||= {}
     (@callbacks[type] || []).each { |cb| cb.call }
 
     return nil
