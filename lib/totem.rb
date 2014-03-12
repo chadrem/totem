@@ -54,7 +54,7 @@ module Totem
     return @logger
   end
 
-  def self.register_callback(type, callback, &block)
+  def self.register_callback(type, callback=nil, &block)
     (@callbacks[:type] ||= []) << (callback || block)
 
     return true
