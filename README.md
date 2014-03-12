@@ -3,18 +3,21 @@
 Totem is a Ruby gem for creating Ruby projects.
 It's like having a Rails project folder without the Rails dependency.
 
-##### Project Features:
-- Ruby on Rails inspired folder structure.
-- Lightweight and simple code.
-- Uses built in Ruby classes and avoids depending on third party gems.
-- Designed for MRI and JRuby.
-- Easily extensible through gems or directly in your project (ActiveRecord gem coming soon).
-- Designed for multi-threaded applications.
+##### Goals:
+- Use a Ruby on Rails inspired folder structure because many developers are familiar with it.
+- Keep the gem lightweight with simple easy to understand code.
+- Prefer built in Ruby classes and methods in order to avoid third party dependencies.
+- Design from day one for MRI and JRuby.
+- Make it extensible through gems and directly in a project project.
+- Maintain thread safety so that it can be used with gems such as [Tribe](https://github.com/chadrem/tribe) or [Celluloid](https://github.com/celluloid/celluloid).
 
-##### API Features:
-- Integrated console.
-- Integrated logger.
-- Integrated environments (development, production, stage, etc).
+##### Features:
+- console
+- logger
+- environments (development, production, stage, etc).
+
+##### Coming soon:
+- ActiveRecord add-on gem.
 
 ## Installation
 
@@ -41,7 +44,7 @@ You must now setup Bundler (and rvm, rbenv, etc) for your new project:
     $ bundle
 
 You can now create your custom classes in the `app` directory.
-You will need to manually `require` your classes in `app/loader.rb` since there isn't an auto-loader.
+You will need to manually `require` your classes in `app/loader.rb` since Tribe doesn't come with an auto-loader due to thread safety.
 
 Totem comes with an IRB based console similar to Rails:
 
