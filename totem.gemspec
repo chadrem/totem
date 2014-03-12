@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = Totem::VERSION
   gem.authors       = ['Chad Remesch']
   gem.email         = ['chad@remesch.com']
-  gem.description   = %q{Totem is a framework for creating Ruby projects.}
+  gem.description   = %q{Totem is a Ruby gem for creating Ruby projects.}
   gem.summary       = %q{It's like having a Rails project folder without the Rails dependency.}
   gem.homepage      = 'https://github.com/chadrem/totem'
 
