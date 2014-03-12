@@ -5,7 +5,7 @@ It's like having a Rails project folder without the Rails dependency.
 
 ##### Goals:
 - Use a Ruby on Rails inspired folder structure because many developers are familiar with it.
-- Keep the gem lightweight and write simple easy to understand (and extend) code.
+- Keep the gem lightweight with simple easy to understand code.
 - Prefer built in Ruby classes and methods in order to avoid third party dependencies.
 - Design from day one for MRI and JRuby.
 - Make it extensible through gems and directly in a project project.
