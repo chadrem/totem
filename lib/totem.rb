@@ -58,7 +58,7 @@ module Totem
   end
 
   def self.log_file_path
-    name = env
+    name = "#{env}"
     name << "_#{component}" if component && component.length > 0
     name << "_#{instance}" if instance && instance.length > 0
     name << '.log'
