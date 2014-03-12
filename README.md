@@ -3,14 +3,18 @@
 Totem is a framework for creating Ruby projects.
 It's like having a Rails project folder without the Rails dependency.
 
-Features:
+Project Features:
 - Ruby on Rails inspired folder structure.
 - Lightweight and simple code.
-- Integrated console.
 - Uses built in Ruby classes and avoids depending on third party gems.
 - Designed for MRI and JRuby.
 - Easily extensible through gems or directly in your project (ActiveRecord gem coming soon).
 - Designed for multi-threaded applications.
+
+API Features:
+- Integrated console.
+- Integrated logger.
+- Integrated environments (development, production, stage, etc).
 
 ## Installation
 
