@@ -44,7 +44,7 @@ You must now setup Bundler (and rvm, rbenv, etc) for your new project:
     $ bundle
 
 You can now create your custom classes in the `app` directory.
-You will need to manually `require` your classes in `app/loader.rb` since there isn't an auto-loader.
+You will need to manually `require` your classes in `app/loader.rb` since Tribe doesn't come with an auto-loader due to thread safety.
 
 Totem comes with an IRB based console similar to Rails:
 
