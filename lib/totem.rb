@@ -1,5 +1,4 @@
 require 'logger'
-require 'irb'
 
 require 'totem/version'
 require 'totem/shell'
@@ -15,6 +14,9 @@ module Totem
 
     Bundler.require(Totem.env.to_sym)
     Time.zone = 'UTC'
+
+    $LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__) + '/../app')))
+
     load_app
 
     return true
@@ -33,19 +35,11 @@ module Totem
   end
 
   def self.component
-    return @component || 'default'
-  end
-
-  def self.component=(val)
-    return @component = val
+    return @component ||= ENV['TOTEM_COMPONENT']
   end
 
   def self.instance
-    return @instance || 0
-  end
-
-  def self.instance=(val)
-    return @instance = val
+    return @instance || ENV['TOTEM_INSTANCE']
   end
 
   def self.logger=(val)
@@ -73,6 +67,15 @@ module Totem
     return nil
   end
 
+  def self.log_file_path
+    name = env
+    name << "_#{component}" if component
+    name << "_#{instance}" if instance
+    name << '.log'
+
+    return File.join(root, 'log', name)
+  end
+
   def self.log_to_file
     init_logger(File.join(root, 'log', "#{env}_#{component}_#{instance}.log"))
 
@@ -80,8 +83,9 @@ module Totem
   end
 
   def self.init_logger(output)
-    @logger = Logger.new(output)
+    raise 'Logger is already initialized' if @logger
 
+    @logger = Logger.new(output)
     @logger.formatter = proc do |severity, datetime, progname, msg|
       "#{datetime} :: #{msg}\n"
     end

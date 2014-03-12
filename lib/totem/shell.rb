@@ -16,7 +16,7 @@ module Totem
       if @args[0].nil?
         puts "Usage:\n  totem <command>"
         puts
-        puts "Available commands:\n  #{self.class.cmds.keys.join(', ')}"
+        puts "Commands:\n  #{self.class.cmds.keys.join(', ')}"
         return
       end
 
