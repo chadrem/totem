@@ -57,7 +57,8 @@ Don't forget, you need to register this class in `app/loader.rb` with `require m
         puts "  Environment: #{Totem.env}"
         puts
         
-        puts 'Totem includes a logger...'Totem.logger.error('Example error log entry')
+        puts 'Totem includes a logger...'
+        Totem.logger.error('Example error log entry')
         puts "  Check your #{Totem.log_file_path} to see the entry."
         puts
         
