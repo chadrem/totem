@@ -5,9 +5,9 @@ It's like having a Rails project folder without the Rails dependency.
 
 Features:
 - Ruby on Rails inspired folder structure.
-- Lightweight.
+- Lightweight and simple code.
 - Integrated console.
-- Uses built in Ruby features and avoids depending on gems.
+- Uses built in Ruby classes and avoids depending on 3rd party gems.
 - Designed for MRI and JRuby.
 - Easily extensible through gems or directly in your project.
   - ActiveRecord (coming soon).
