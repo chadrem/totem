@@ -12,9 +12,12 @@ module Totem
 
     @setup = true
     @root = root
+    @callbacks = {}
     Bundler.require(Totem.env.to_sym)
+    run_callbacks(:before_load_app)
     $LOAD_PATH.unshift(root + '/app')
     load_app
+    run_callbacks(:after_load_app)
 
     return true
   end
@@ -51,6 +54,14 @@ module Totem
     return @logger
   end
 
+  def self.register_callback(type, callback, &block)
+    (@callbacks[:type] ||= []) << (callback || block)
+
+    return true
+  end
+
+  private
+
   def self.log_to_stdout
     init_logger($stdout)
 
@@ -79,6 +90,12 @@ module Totem
     @logger.formatter = proc do |severity, datetime, progname, msg|
       "#{datetime} :: #{msg}\n"
     end
+
+    return nil
+  end
+
+  def self.run_callbacks(type)
+    (@callbacks[type] || []).each { |cb| cb.call }
 
     return nil
   end
