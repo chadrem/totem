@@ -67,7 +67,7 @@ module Totem
   end
 
   def self.log_to_file
-    init_logger(File.join(root, 'log', "#{env}_#{component}_#{instance}.log"))
+    init_logger(log_file_path)
 
     return nil
   end
