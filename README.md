@@ -32,6 +32,10 @@ Create a new project called "my_app" in the current directory:
 
     $ totem new my_app
 
+You must now setup Bundler (and rvm, rbenv, etc) for your new project:
+
+    $ bundle
+
 You can now create your custom classes in the "app" directory.
 You will need to manually "require" your classes in "app/loader.rb" since there isn't an auto-loader.
 

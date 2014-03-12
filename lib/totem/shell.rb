@@ -14,9 +14,7 @@ module Totem
 
     def run
       if @args[0].nil?
-        puts "Usage:\n  totem <command>"
-        puts
-        puts "Commands:\n  #{self.class.cmds.keys.join(', ')}"
+        puts_usage
         return
       end
 
@@ -30,7 +28,23 @@ module Totem
     end
 
     def cmd_to_class(cmd)
-      return self.class.cmds[cmd.to_sym] || raise("Unknown cmd: #{cmd}")
+      if result = self.class.cmds[cmd.to_sym]
+        return result
+      end
+
+      puts "ERROR: Unknown command: #{cmd}"
+      puts
+      puts_usage
+
+      exit
+    end
+
+    private
+
+    def puts_usage
+      puts "Usage:\n  totem <command>"
+      puts
+      puts "Commands:\n  #{self.class.cmds.keys.join(', ')}"
     end
   end
 end
