@@ -25,15 +25,15 @@ module Totem
         template_path = File.expand_path(File.dirname(__FILE__) + '/../../../')
 
         puts 'Creating Gemfile...'
-        FileUtils.cp(template_path + 'Gemfile.erb', root_path + 'Gemfile')
+        FileUtils.cp(template_path + '/Gemfile.erb', root_path + 'Gemfile')
         puts
 
         puts 'Creating config/environment.rb...'
-        FileUtils.cp(template_path + 'config/environment.rb.erb', root_path + 'config/environment.rb')
+        FileUtils.cp(template_path + '/config/environment.rb.erb', root_path + 'config/environment.rb')
         puts
 
         puts 'Creating app/loader.rb...'
-        FileUtils.cp(template_path + 'app/loader.rb.erb', root_path + 'app/loader.rb')
+        FileUtils.cp(template_path + '/app/loader.rb.erb', root_path + 'app/loader.rb')
         puts
 
         puts 'Finished! You must now run "bundle update" inside your project directory.'
