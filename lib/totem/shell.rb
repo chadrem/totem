@@ -14,8 +14,9 @@ module Totem
 
     def run
       if @args[0].nil?
-        puts "Usage: totem <command>"
-        puts "Available commands: #{self.class.cmds.keys.join(', ')}"
+        puts "Usage:\n  totem <command>"
+        puts
+        puts "Available commands:\n  #{self.class.cmds.keys.join(', ')}"
         return
       end
 
