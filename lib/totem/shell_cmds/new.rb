@@ -1,4 +1,4 @@
-require 'fileutils'
+require 'erb'
 
 module Totem
   module ShellCmds
@@ -9,7 +9,7 @@ module Totem
           return
         end
 
-        root_path = @args[0] + '/'
+        root_path = @args[0]
 
         puts 'Creating project root directory...'
         Dir.mkdir(root_path)
@@ -18,22 +18,28 @@ module Totem
         puts 'Creating sub-directories...'
         %w(app config log tmp).each do |dir|
           puts "  #{dir}..."
-          Dir.mkdir(root_path + dir)
+          Dir.mkdir(root_path + '/' + dir)
         end
         puts
 
         template_path = File.expand_path(File.dirname(__FILE__) + '/../../../templates')
 
         puts 'Creating Gemfile...'
-        FileUtils.cp(template_path + '/Gemfile.erb', root_path + 'Gemfile')
+        input = File.read(template_path + '/Gemfile.erb')
+        output = ERB.new(input).result(binding)
+        File.open(root_path + '/Gemfile', 'w') { |f| f.write(output) }
         puts
 
         puts 'Creating config/environment.rb...'
-        FileUtils.cp(template_path + '/config/environment.rb.erb', root_path + 'config/environment.rb')
+        input = File.read(template_path + '/config/environment.rb.erb')
+        output = ERB.new(input).result(binding)
+        File.open(root_path + '/config/environment.rb', 'w') { |f| f.write(output) }
         puts
 
         puts 'Creating app/loader.rb...'
-        FileUtils.cp(template_path + '/app/loader.rb.erb', root_path + 'app/loader.rb')
+        input = File.read(template_path + '/app/loader.rb.erb')
+        output = ERB.new(input).result(binding)
+        File.open(root_path + '/app/loader.rb', 'w') { |f| f.write(output) }
         puts
 
         puts 'Finished! You must now run "bundle update" inside your project directory.'
