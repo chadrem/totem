@@ -7,17 +7,36 @@ module Totem
           return
         end
 
-        puts "Creating project root directory..."
-        Dir.mkdir(@args[0])
+        root_path = @args[0] + '/'
 
-        puts "Switching to project root directory..."
-        Dir.chdir(@args[0])
+        puts 'Creating project root directory...'
+        Dir.mkdir(root_path)
+        puts
 
-        %w(app config log).each do |dir|
-          puts "Creating project sub-directory (#{dir})..."
-          Dir.mkdir(dir)
+        puts 'Creating sub-directories...'
+        %w(app config log tmp).each do |dir|
+          puts "  #{dir}..."
+          Dir.mkdir(root_path + dir)
         end
+        puts
+
+        template_path = File.expand_path(File.dirname(__FILE__) + '/../../../')
+
+        puts 'Creating Gemfile...'
+        File.cp(template_path + 'Gemfile.erb', root_path + 'Gemfile')
+        puts
+
+        puts 'Creating config/environment.rb...'
+        File.cp(template_path + 'config/environment.rb.erb', root_path + 'config/environment.rb')
+        puts
+
+        puts 'Creating app/loader.rb...'
+        File.cp(template_path + 'app/loader.rb.erb', root_path + 'app/loader.rb')
+        puts
+
+        puts 'Finished! You must now run "bundle update" inside your project directory.'
       end
+
     end
   end
 end
