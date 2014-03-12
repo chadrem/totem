@@ -13,7 +13,7 @@ module Totem
     @setup = true
     @root = root
     Bundler.require(Totem.env.to_sym)
-    $LOAD_PATH.unshift(root + '/app')))
+    $LOAD_PATH.unshift(root + '/app')
     load_app
 
     return true
