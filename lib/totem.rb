@@ -4,6 +4,7 @@ require 'totem/version'
 require 'totem/shell'
 require 'totem/shell_cmds/base'
 require 'totem/shell_cmds/console'
+require 'totem/shell_cmds/new'
 
 module Totem
   def self.initialize(root)
