@@ -50,7 +50,7 @@ module Totem
     private
 
     def puts_usage
-      puts "Usage:\n  totem <command>"
+      puts "Usage:\n  bundle exec totem <command>"
       puts
       puts "Commands:\n  #{self.class.cmds.keys.join(', ')}"
     end
