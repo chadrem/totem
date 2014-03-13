@@ -37,7 +37,7 @@ Create a new project called `my_app` in the current directory:
 
     $ totem new my_app
 
-You must now setup Bundler (and rvm, rbenv, etc) for your new project:
+You must now setup Bundler (and rvm, rbenv, etc if you use them) for your new project:
 
     $ bundle
 
