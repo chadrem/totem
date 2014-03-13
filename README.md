@@ -6,10 +6,10 @@ Use it for simple prototyping or building non-Rails applications (including serv
 
 ##### Goals:
 - Use a Ruby on Rails inspired folder structure because many developers are familiar with it.
-- Keep the gem lightweight with simple easy to understand code.
-- Prefer built in Ruby classes and methods in order to avoid third party dependencies.
+- Keep the gem lightweight with simple and easy to understand code.
+- Prefer built in Ruby classes in order to avoid third party dependencies.
 - Design from day one for MRI and JRuby.
-- Make it extensible through gems and directly in a project project.
+- Make it easily extensible.
 - Maintain thread safety so that it can be used with gems such as [Tribe](https://github.com/chadrem/tribe) or [Celluloid](https://github.com/celluloid/celluloid).
 
 ##### Features:
