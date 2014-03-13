@@ -35,7 +35,7 @@ Or install it yourself as:
 
 Create a new project called `my_app` in the current directory:
 
-    $ totem new my_app
+    $ bundle exec totem new my_app
 
 You must now setup Bundler (and rvm, rbenv, etc if you use them) for your new project:
 
@@ -46,7 +46,7 @@ You will need to manually `require` your classes in `app/loader.rb` since Tribe 
 
 Totem comes with an IRB based console similar to Rails:
 
-    $ totem console
+    $ bundle exec totem console
 
 ## Totem API
 
