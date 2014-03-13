@@ -52,7 +52,7 @@ Totem comes with an IRB based console similar to Rails:
 
 Totem comes with some built in methods that should be familiar to any Rails developer.
 Copy and paste the below code into `app/my_class.rb`.
-You can then run this example in the `totem console` by entering `MyClass.new.run`.
+You can then run this example in the console by entering `MyClass.new.run`.
 Don't forget, you need to register this class in `app/loader.rb` with `require my_class`.
 
     class MyClass
