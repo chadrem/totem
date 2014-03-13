@@ -2,7 +2,6 @@
 
 Totem is a Ruby gem for creating Ruby projects.
 It's like having a Rails project folder without the Rails dependency.
-Use it for simple prototyping or building non-Rails applications (including servers).
 
 ##### Goals:
 - Use a Ruby on Rails inspired folder structure because many developers are familiar with it.
