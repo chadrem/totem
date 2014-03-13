@@ -17,9 +17,6 @@ Use it for simple prototyping or building non-Rails applications (including serv
 - logger
 - environments (development, production, stage, etc).
 
-##### Coming soon:
-- ActiveRecord add-on gem.
-
 ## Installation
 
 Add this line to your application's Gemfile:
