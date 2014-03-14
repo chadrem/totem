@@ -37,8 +37,18 @@ module Totem
     return @component ||= ENV['TOTEM_COMPONENT']
   end
 
+  def self.component=(val)
+    raise 'component may only be set once and must be set before calling logger' if @logger || @component
+    @component = val
+  end
+
   def self.instance
     return @instance || ENV['TOTEM_INSTANCE']
+  end
+
+  def self.instance=(val)
+    raise 'instance may only be set once and must be set before calling logger' if @logger || @instance
+    @instance = val
   end
 
   def self.logger=(val)
