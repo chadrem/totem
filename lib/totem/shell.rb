@@ -16,7 +16,7 @@ module Totem
       env_path = 'config/environment.rb'
       if File.exists?(env_path)
         load(env_path)
-      elsif args[0] != 'new'
+      elsif @args[0] != 'new'
         puts "Unable to find #{env_path}.  You must run this command from your project root directory."
         exit
       end
