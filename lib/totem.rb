@@ -29,6 +29,11 @@ module Totem
     return (@env ||= (ENV['TOTEM_ENV'] || 'development'))
   end
 
+  def self.env=(val)
+    raise 'env may only be set once and must be set before calling logger' if @logger || @env
+    @env = val
+  end
+
   def self.load_app
     require "#{Totem.root}/app/loader.rb"
   end
