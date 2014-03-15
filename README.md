@@ -75,6 +75,7 @@ Don't forget, you need to register this class in `app/loader.rb` with `require m
 Below is a list of available add-ons that extend the functionality of a Totem project:
 
 - [totem_activerecord](https://github.com/chadrem/totem_activerecord): The Rails database library
+- [raad_totem](https://github.com/chadrem/raad_totem): Create background services (daemons)
 
 ## Contributing
 
