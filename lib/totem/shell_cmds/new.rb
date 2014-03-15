@@ -5,7 +5,7 @@ module Totem
     class New < Totem::ShellCmds::Base
       def run
         if @args[0].nil?
-          puts "You must provide a name for the new project."
+          puts 'ERROR: You must provide a name for the new project.'
           return
         end
 
