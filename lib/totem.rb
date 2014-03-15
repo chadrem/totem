@@ -70,21 +70,24 @@ module Totem
     return true
   end
 
+  def self.process_name
+    name = "#{env}"
+    name << "_#{component}" if component && component.length > 0
+    name << "_#{instance}" if instance && instance.length > 0
+
+    return name
+  end
+
+  def self.log_file_path
+    return File.join(root, 'log', "#{process_name}.log")
+  end
+
   private
 
   def self.log_to_stdout
     init_logger($stdout)
 
     return nil
-  end
-
-  def self.log_file_path
-    name = "#{env}"
-    name << "_#{component}" if component && component.length > 0
-    name << "_#{instance}" if instance && instance.length > 0
-    name << '.log'
-
-    return File.join(root, 'log', name)
   end
 
   def self.log_to_file
