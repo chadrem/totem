@@ -36,10 +36,10 @@ module Totem
   end
 
   def self.env=(val)
-    run_callback(:before_set_env)
+    run_callbacks(:before_set_env)
     raise 'env may only be set once and must be set before calling logger' if @logger || @env
     @env = val
-    run_callback(:after_set_env)
+    run_callbacks(:after_set_env)
   end
 
   def self.component
@@ -47,10 +47,10 @@ module Totem
   end
 
   def self.component=(val)
-    run_callback(:before_set_component)
+    run_callbacks(:before_set_component)
     raise 'component may only be set once and must be set before calling logger' if @logger || @component
     @component = val
-    run_callback(:after_set_component)
+    run_callbacks(:after_set_component)
   end
 
   def self.instance
@@ -58,10 +58,10 @@ module Totem
   end
 
   def self.instance=(val)
-    run_callback(:before_set_instance)
+    run_callbacks(:before_set_instance)
     raise 'instance may only be set once and must be set before calling logger' if @logger || @instance
     @instance = val
-    run_callback(:after_set_instance)
+    run_callbacks(:after_set_instance)
   end
 
   def self.logger
@@ -94,17 +94,17 @@ module Totem
   end
 
   def self.restart
-    run_callback(:before_restart)
+    run_callbacks(:before_restart)
     load_app
-    run_callback(:after_restart)
+    run_callbacks(:after_restart)
   end
 
   private
 
   def self.load_app
-    run_callback(:before_load_app)
+    run_callbacks(:before_load_app)
     load "#{Totem.root}/app/loader.rb"
-    run_callback(:after_load_app)
+    run_callbacks(:after_load_app)
 
     return nil
   end
