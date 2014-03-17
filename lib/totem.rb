@@ -10,13 +10,19 @@ module Totem
   def self.initialize(root)
     raise 'Already initialized.' if @setup
 
+    # Must stay at top of method.
+    run_callbacks(:before_init)
+
     @setup = true
     @root = root
     Bundler.require(Totem.env.to_sym)
-    run_callbacks(:before_load_app)
+    run_callbacks(:before_first_load_app)
     $LOAD_PATH.unshift(root + '/app')
     load_app
-    run_callbacks(:after_load_app)
+    run_callbacks(:after_first_load_app)
+
+    # Must stay at bottom of method.
+    run_callbacks(:after_init)
 
     return true
   end
@@ -30,12 +36,10 @@ module Totem
   end
 
   def self.env=(val)
+    run_callback(:before_set_env)
     raise 'env may only be set once and must be set before calling logger' if @logger || @env
     @env = val
-  end
-
-  def self.load_app
-    require "#{Totem.root}/app/loader.rb"
+    run_callback(:after_set_env)
   end
 
   def self.component
@@ -43,8 +47,10 @@ module Totem
   end
 
   def self.component=(val)
+    run_callback(:before_set_component)
     raise 'component may only be set once and must be set before calling logger' if @logger || @component
     @component = val
+    run_callback(:after_set_component)
   end
 
   def self.instance
@@ -52,20 +58,14 @@ module Totem
   end
 
   def self.instance=(val)
+    run_callback(:before_set_instance)
     raise 'instance may only be set once and must be set before calling logger' if @logger || @instance
     @instance = val
-  end
-
-  def self.logger=(val)
-    return @logger = val
+    run_callback(:after_set_instance)
   end
 
   def self.logger
-    return @logger if @logger
-
-    log_to_file
-
-    return @logger
+    return @logger || log_to_file
   end
 
   def self.register_callback(type, callback=nil, &block)
@@ -87,18 +87,34 @@ module Totem
     return File.join(root, 'log', "#{process_name}.log")
   end
 
+  def self.reload
+    run_callback(:before_reload)
+    load_app
+    run_callback(:after_reload)
+  end
+
+  def self.restart
+    run_callback(:before_restart)
+    load_app
+    run_callback(:after_restart)
+  end
+
   private
 
-  def self.log_to_stdout
-    init_logger($stdout)
+  def self.load_app
+    run_callback(:before_load_app)
+    load "#{Totem.root}/app/loader.rb"
+    run_callback(:after_load_app)
 
     return nil
   end
 
-  def self.log_to_file
-    init_logger(log_file_path)
+  def self.log_to_stdout
+    return init_logger($stdout)
+  end
 
-    return nil
+  def self.log_to_file
+    return init_logger(log_file_path)
   end
 
   def self.init_logger(output)
@@ -109,7 +125,7 @@ module Totem
       "#{datetime} :: #{msg}\n"
     end
 
-    return nil
+    return @logger
   end
 
   def self.run_callbacks(type)
