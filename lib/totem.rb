@@ -88,9 +88,9 @@ module Totem
   end
 
   def self.reload
-    run_callback(:before_reload)
+    run_callbacks(:before_reload)
     load_app
-    run_callback(:after_reload)
+    run_callbacks(:after_reload)
   end
 
   def self.restart
